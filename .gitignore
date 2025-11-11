@@ -1,0 +1,16 @@
+
+
+# Terraform
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+crash.log
+*.tfvars
+*.tfvars.json
+*.tfrc
+terraform.rc
+
+# Google Cloud
+*-sa-key.json
+gcp-credentials.json
+.gcloud/

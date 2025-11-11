@@ -1,0 +1,64 @@
+# Create node pools
+resource "google_container_node_pool" "node_pools" {
+  for_each = { for pool in var.node_pools : pool.name => pool }
+
+  name       = each.value.name
+  location   = var.cluster_location
+  cluster    = var.cluster_name
+  node_count = each.value.node_count
+
+  # Autoscaling configuration
+  dynamic "autoscaling" {
+    for_each = each.value.min_node_count != null && each.value.max_node_count != null ? [1] : []
+    content {
+      min_node_count = each.value.min_node_count
+      max_node_count = each.value.max_node_count
+    }
+  }
+
+  # Node configuration
+  node_config {
+    machine_type    = each.value.machine_type
+    disk_size_gb    = each.value.disk_size_gb
+    disk_type       = each.value.disk_type
+    preemptible     = each.value.preemptible
+    spot            = each.value.spot
+    service_account = each.value.service_account
+    oauth_scopes    = each.value.oauth_scopes
+    labels          = each.value.labels
+    tags            = each.value.tags
+
+    # Taints configuration
+    dynamic "taint" {
+      for_each = each.value.taints
+      content {
+        key    = taint.value.key
+        value  = taint.value.value
+        effect = taint.value.effect
+      }
+    }
+
+    # Workload Identity
+    workload_metadata_config {
+      mode = "GKE_METADATA"
+    }
+
+    # Shielded instance config
+    shielded_instance_config {
+      enable_secure_boot          = true
+      enable_integrity_monitoring = true
+    }
+  }
+
+  # Management configuration
+  management {
+    auto_repair  = each.value.auto_repair
+    auto_upgrade = each.value.auto_upgrade
+  }
+
+  # Upgrade settings
+  upgrade_settings {
+    max_surge       = 1
+    max_unavailable = 0
+  }
+}
