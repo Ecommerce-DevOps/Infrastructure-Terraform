@@ -90,3 +90,18 @@ resource "google_compute_router_nat" "nat_gateway" {
     filter = "ERRORS_ONLY"
   }
 }
+
+# Allow NodePort access for external monitoring (Grafana)
+resource "google_compute_firewall" "allow_nodeports" {
+  name    = "${var.network_name}-allow-nodeports"
+  network = google_compute_network.vpc.name
+  project = var.project_id
+
+  allow {
+    protocol = "tcp"
+    ports    = ["30000-32767"]
+  }
+
+  source_ranges = ["0.0.0.0/0"] # TODO: Restrict to Grafana VM IP in production
+  target_tags   = ["gke-node"]
+}

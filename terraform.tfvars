@@ -2,7 +2,7 @@
 # Última actualización: 27 Oct 2025
 
 # Google Cloud Project
-project_id = "ecommerce-backend-1760307199"
+project_id = "rock-fortress-479417-t5"
 region     = "us-central1"
 
 # Node Locations (zonas dentro de la región)
@@ -16,7 +16,7 @@ repo_description = "Infrastructure for ecommerce DevOps platform"
 # Pool único con 4 nodos e2-standard-2 (2 vCPU, 8 GB RAM cada uno)
 # Total: 8 vCPUs, 32 GB RAM
 node_pools = {
-  general-pool = 4  # Para Jenkins + staging + production
+  general-pool = 4 
 }
 
 # Namespaces de Kubernetes

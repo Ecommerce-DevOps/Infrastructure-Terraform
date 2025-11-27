@@ -1,5 +1,5 @@
 credentials_file = "terraform-sa-key.json"
-project_id       = "ecommerce-backend-1760307199"
+project_id       = "rock-fortress-479417-t5"
 region           = "us-central1"
 node_locations   = ["us-central1-c"]
 repo_name        = "ecommerce-prod"

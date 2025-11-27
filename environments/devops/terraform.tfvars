@@ -1,5 +1,5 @@
 # DevOps Environment Configuration
-project_id     = "ecommerce-backend-1760307199"
+project_id     = "rock-fortress-479417-t5"
 region         = "us-central1"
 node_locations = ["us-central1-c"]
 cluster_name   = "ecommerce-devops-cluster"

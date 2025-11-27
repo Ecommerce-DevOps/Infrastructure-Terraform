@@ -1,7 +1,7 @@
 variable "project_id" {
   description = "The Google Cloud project ID where resources will be created."
   type        = string
-  default     = "ecommerce-backend-1760307199"
+  default     = "rock-fortress-479417-t5"
 }
 
 variable "region" {
@@ -32,7 +32,7 @@ variable "node_pools" {
   description = "Map of node pool names to the number of nodes in each pool."
   type        = map(number)
   default     = {
-    general-pool = 4  # Pool único optimizado para Jenkins + microservicios
+    general-pool = 8
   }
 }
 

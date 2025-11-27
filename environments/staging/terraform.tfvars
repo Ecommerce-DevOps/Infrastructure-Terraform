@@ -1,5 +1,5 @@
 # Staging Environment Configuration
-project_id   = "ecommerce-backend-1760307199"
+project_id   = "rock-fortress-479417-t5"
 region       = "us-central1"
 cluster_name = "ecommerce-staging-cluster"
 

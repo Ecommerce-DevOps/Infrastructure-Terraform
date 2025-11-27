@@ -14,7 +14,7 @@ This repository contains Terraform configurations for deploying a production-rea
 
 ```mermaid
 graph TB
-    subgraph "Google Cloud Platform - Project: ecommerce-backend-1760307199"
+    subgraph "Google Cloud Platform - Project: rock-fortress-479417-t5"
         subgraph "Region: us-central1"
             subgraph "VPC Network: ecommerce-devops-vpc (10.20.0.0/20)"
                 NAT[Cloud NAT Gateway<br/>Router: ecommerce-devops-vpc-nat-router]
@@ -59,7 +59,7 @@ graph TB
 ## Infrastructure Components
 
 ### Google Cloud Project
-- **Project ID**: ecommerce-backend-1760307199
+- **Project ID**: rock-fortress-479417-t5
 - **Region**: us-central1
 - **Kubernetes Version**: 1.33.4-gke.1245000
 
